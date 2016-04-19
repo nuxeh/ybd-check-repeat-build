@@ -13,7 +13,6 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 # Repeatedly build system images and check for repeatability of
 # files contained in resulting system builds using checksums, and
 # analysing symbolic links.
@@ -33,14 +32,12 @@ function help() {
 }
 
 # Options
-
 TARGET_COUNT=0
 THOROUGH=1
 LINKS=1
-BUILD_EACH_TIME=0
 YBD='../ybd/ybd.py'
 
-while getopts ":rlty:n:c:" opt; do
+while getopts ":lty:c:" opt; do
 	case $opt in
 		# run count
 		c) TARGET_COUNT=$OPTARG
@@ -50,9 +47,6 @@ while getopts ":rlty:n:c:" opt; do
 		;;
 		# disable links
 		l) LINKS=0
-		;;
-		# rebuild
-		r) BUILD_EACH_TIME=1
 		;;
 		# ybd path
 		y) YBD=$OPTARG
@@ -69,6 +63,7 @@ SYSTEM=$1
 ARCH=$2
 
 COUNT=0
+
 OF="build-results-$(date | sed 's/\s/-/g;s/:/-/g')" # Output file for results
 echo "Results piped to $(pwd)/$OF"
 
