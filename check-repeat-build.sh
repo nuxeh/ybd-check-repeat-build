@@ -27,7 +27,7 @@ function help() {
 	echo '                          system-morph-path architecture'
 	echo
 	echo 'Example (run from root of definitions):'
-	echo '    check-repeat-build.sh systems/base-system-x86_64-generic.morph x86_64'
+	echo '    sudo check-repeat-build.sh systems/base-system-x86_64-generic.morph x86_64'
 	exit 1
 }
 
